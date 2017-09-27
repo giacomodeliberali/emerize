@@ -1,0 +1,1 @@
+SELECT * FROM prodotti WHERE MATCH (Nome) AGAINST ('pane coop') OR MATCH (Descrizione) AGAINST ('pane coop')

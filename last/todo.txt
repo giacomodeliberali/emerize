@@ -1,0 +1,14 @@
+21:32 15/05/2015
+	BUGS
+
+	
+	TODO
+		1) Statistiche dei prodotti più acquistati e delle sottotipologie preferite, negozi preferiti, ecc.
+		2) EasterEgg: se prendi X di un prodotto rotazione intero schermo e comparizione Crediti e autori.
+		4) pagine per la gestione degli ordini dei fattorini
+		5) Nelle informazioni.php se negozio mettere qual'è quello gestito
+		6) Caricamento immagine profilo nella registrazione nuovo utente
+		7) tools.php/getCategorie() variabile statica non presa dalla session. Correggere
+	
+	MODIFY
+		1) Swipe-left/right su un prodotto, animazione jquery stile google gmail apk (slide da dx a sx o viceversa), e rimozione di un'unità dal carrello.

@@ -1,0 +1,440 @@
+/*Tooltip*/
+.tooltip-inner {
+    background: rgba(180, 220, 243, 1) !important;
+	border-color: #269abc !important;
+	color: #333 !important;
+}
+.tooltip.bottom .tooltip-arrow{
+	border-bottom-color: rgba(180, 220, 243, 1) !important;
+}
+.tooltip.left .tooltip-arrow{
+	border-left-color: rgba(180, 220, 243, 1) !important;
+}
+/*fine tooltip*/
+
+.productContent{
+	background: rgba(180, 220, 243, 0.4);
+	padding: 10px;
+	border: 1px solid #ccc;
+	margin-left: -10px;
+	margin-right: -10px;
+	margin-top: 20px
+}
+
+button.buttonAdd{
+	width: 180px;
+}
+
+.bootstrap-select > button:not([class*="btn-info"]) {
+background: white;
+  border: 1px solid #ccc;
+  border-radius: 0;
+  width: 100% !important;
+  /*background-image: url("images/tick.png");*/
+  background-position: 90% 50%;
+  background-repeat: no-repeat;
+}
+
+.bootstrap-select {
+	width: 100%;
+}
+
+/* vertial align image */
+.responsive-container {
+    position: relative;
+	text-align: center;
+	max-height: 300px;
+}
+
+.dummy {
+    padding-top: 100%; /* forces 1:1 aspect ratio */
+}
+
+.img-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    text-align:center; /* Align center inline elements */
+    font: 0/0 a;
+}
+
+.img-container:before {
+    content: ' ';
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+}
+
+.img-container > * {
+    vertical-align: middle;
+    display: inline-block;
+}
+/* end vertial align*/
+
+/* PLACEHOLDER not uppercase */
+::-webkit-input-placeholder { /* WebKit browsers */
+    text-transform: none;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    text-transform: none;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    text-transform: none;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    text-transform: none;
+}
+/* FINE PLACEHOLDER */
+.ui-datepicker-header{
+	color: #4297d7 !important;
+}
+
+div.input-group{
+	margin-bottom: 10px;
+}
+
+span.label {
+	margin-left: 5px;
+	width: 100px;
+}
+
+.form-error, .form-error:focus{
+
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+
+  border: 1px solid red;
+  border-radius: 4px;
+  
+  outline: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+
+.btn-info, .btn-danger, .btn-warning {
+	/*width: auto !important;*/
+	/*max-width: 100px;*/
+	min-width: 80px !important;
+	background-image: none !important;
+}
+
+html.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+div.btn-remove{
+	cursor: pointer;
+	width: 25px;
+	color: red;
+}
+
+a {
+	cursor: pointer !important;
+}
+
+html{
+	background: #ffffff;
+	font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+}
+
+
+
+/** Popup */
+.ui-widget-overlay{
+	background: black;
+	opacity: 0.7 !important;
+}
+.ui-widget-header{
+	background: #5bc0de !important;
+	border: 1px solid #28a4c9 !important;
+}
+
+.ui-dialog-titlebar-close{
+	/*background-image: url("http://code.jquery.com/ui/1.9.2/themes/base/images/ui-icons_222222_256x240.png");*/
+	background-image: url("../images/close.png");
+	background-size: cover;
+	background-color: transparent;
+	border: 0px;
+}
+
+/* .ui-dialog{
+	position: absolute !important;
+	top: 10% !important;
+} */
+
+/* fine popup */
+
+/** LOGIN PAGE */
+
+.container.container-login{
+	max-width: 500px !important;
+	min-width: 250px !important;
+}
+
+.card-container.card {
+    width: 100%;
+	padding-bottom: 40px;
+}
+
+/*
+ * Card component
+ */
+.card {
+    background-color: #F7F7F7;
+    /* just in case there no content*/
+    padding: 20px 25px 30px;
+    margin: 0 auto 25px;
+    /* shadows and rounded borders */
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.profile-img-card {
+    width: 96px;
+    height: 96px;
+    margin: 0 auto 10px;
+    display: block;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+
+/*
+ * Form styles
+ */
+.profile-name-card {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px 0 0;
+    min-height: 1em;
+}
+
+.reauth-email {
+    display: block;
+    color: #404040;
+    line-height: 2;
+    margin-bottom: 10px;
+    font-size: 14px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.form-signin #inputEmail,
+.form-signin #inputPassword {
+    direction: ltr;
+    height: 44px;
+    font-size: 16px;
+}
+
+.form-signin input[type=email],
+.form-signin input[type=password],
+.form-signin input[type=text],
+.form-signin input[type=date],
+.form-signin input[type=number],
+.form-signin input[type=file],
+.form-signin textarea,
+.form-signin button {
+    width: 100% !important;
+    display: block;
+    margin-bottom: 10px;
+    z-index: 1;
+    /*position: relative;*/
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.form-signin .form-control:focus {
+	border-radius: 0 !important;
+    border-color: rgb(104, 145, 162);
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);
+	
+}
+.form-control{
+	border-radius: 0 !important;
+}
+
+
+.forgot-password {
+    color: rgb(104, 145, 162);
+}
+
+.forgot-password:hover,
+.forgot-password:active,
+.forgot-password:focus{
+    color: rgb(12, 97, 33);
+}
+
+/*FINE LOGIN PAGE */
+
+/*INIZIO INFORMATIONS PAGE*/
+
+div.account {
+	margin-top: 0px;
+	margin-bottom: 10px;
+	position: relative;
+	border: 0px solid;
+}
+
+div.title {
+	color: orange;
+	font-size: 2em;
+	font-weight: bold;
+	/*white-space: nowrap;*/
+}
+
+div.ricerca {
+	float: right;
+}
+
+/*FINE INFORMATIONS PAGE*/
+
+/*INIZIO ORDER PAGE*/
+
+		div.Titolo {
+			text-align: left;
+			font-size: 20px; 
+			background-color: aliceblue;
+			left: 10
+		}
+		div.Titolo1 {
+			text-align: left;
+			font-size: 20px;
+			background-color: aliceblue;
+		}
+		div.Colonna {
+			margin-left: 10px;
+			float: left;
+			height: 87%;
+			width: 49%;
+		}
+		div.Colonna1 {
+			float: left;
+			height: 87%;
+			width: 50%;
+		}
+		div.Colonna2 {
+			margin-left: 10px;
+			float: left;
+			height: 100%;
+			width: 49%;
+		}
+		div.Colonna3 {
+			float: left;
+			height: 100%;
+			width: 50%;
+		}
+		div.Contenitore {
+			position: relative;
+			height: 40%;
+			width: 100%;
+		}
+		div.Contenitore1 {
+			position: relative;
+			height: 40%;
+			width: 100%;
+		}
+		
+/*FINE ORDER PAGE*/
+
+/*Inizio pagina segnalazioni*/
+div.oggetto p{
+    width: 8% !important;
+    float: left;
+    margin-bottom: 10px;
+}
+div.oggetto input{
+    width: 92% !important;
+    float: left;
+    margin-bottom: 10px;
+}
+
+div.tipologia .btn-group, div.tipologia .btn-group button, div.tipologia .btn-group ul{
+    width: 100% !important;
+    margin-bottom: 0px;
+}
+
+div.testo textarea{
+    width: 100% !important;
+    height: 300px !important;
+    margin-bottom: 10px;
+}
+
+div.testo1 textarea{
+    width: 100% !important;
+    height: 50px !important;
+    margin-bottom: 10px;
+}
+
+.btn-group select{
+    width: 100% !important;
+    float: left;
+    margin-bottom: 10px;
+}
+
+.btn-group p{
+    width: 8% !important;
+    float: left;
+    margin-bottom: 10px;
+}
+
+div.invia{
+    float: right;
+    width: 150px;
+}
+/*Fine pagina segnalazioni*/
+
+/*Inzio AreaUtenti*/
+
+div.message-wrap {
+    box-shadow: 0 0 3px #ddd;
+    padding:0;
+}
+
+div.msg-wrap {
+        padding:10px;
+        max-height: 400px;
+        overflow: auto;
+}
+
+div.msg {
+    padding:5px;
+    margin:0;
+}
+
+div.msg-wrap .media-heading {
+        color:#FFA500;
+        font-weight: 700;
+}
+
+div.send-wrap {
+        border-top: 1px solid #eee;
+        border-bottom: 1px solid #eee;
+        padding:10px;
+}
+
+
+/*Fine AreaUtenti*/

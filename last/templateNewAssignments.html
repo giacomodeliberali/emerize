@@ -1,0 +1,236 @@
+
+		
+		<style>
+			.emoji-slider {
+				height: 5px;
+				margin-top: 65px;
+			}
+			.emoji-slider .ui-slider-handle {
+				top: -6px;
+				height: 16px;
+				width: 16px;
+				transform: rotateZ(45deg);
+			}
+			.emoji-slider .ui-slider-pip {
+				top: -50px;
+				margin-left: -1.2em;
+			}
+			.emoji-slider .emoji {
+				max-height: 2em;
+				transform: scale(1.2);
+				transition: transform 0.2s ease-out;
+			}
+			@media screen and (max-width: 950px) {
+				.emoji-slider .emoji {
+					transform: scale(0.7);
+				}
+			}
+			.emoji-slider .ui-slider-pip-selected .emoji {
+				transform: scale(2) translateY(-5px);
+			}
+			@media screen and (max-width: 950px) {
+				.emoji-slider .ui-slider-pip-selected .emoji {
+					transform: scale(1.1) translateY(-5px);
+				}
+			}
+			.emoji-slider .ui-slider-line {
+				display: none;
+			}
+			
+		</style>
+		
+		<style>
+			
+			
+		</style>
+
+		
+		<div class="container">
+				<div class="col-md-5 col-xs-12">
+					<span style="font-size: large; color: orange">Mezzo a disposizione: <span class="maxDistance"></span></span>
+					<div class="emoji-slider" id="distance-slider" id="first">
+						<div style="margin-top: 10px">
+							<small>
+								Mezzo:
+								<span class="maxDistance"></span>
+							</small>
+						</div>
+					</div>
+					<div class="hidden-md hidden-lg" style="height: 30px"></div>
+				</div>
+				
+				<div class="col-md-5 col-xs-12 col-md-offset-2" style="margin-bottom: 30px;">
+					<span style="font-size: large; color: orange">Tempo a disposizione: <span class="maxTime"></span></span>
+					<div class="emoji-slider" id="time-slider" style="">
+						<div style="margin-top: 10px">
+							<small>
+								Tempo:
+								<span class="maxTime"></span>
+							</small>
+						</div>
+					</div>
+				</div>
+				
+		
+				
+			<center>
+				<div class="animation_image" style="display: none" ><img src="/public/images/ajax-loader.gif"></div>
+			</center>
+			
+			<div id="results">
+				
+			</div>
+			
+			<div id="assignmentsTableToolbar" class="btn-group">
+				<div class="title">Lista incarichi</div>
+			</div>
+			
+			<table 	data-toggle="table" id="assignmentsTable" data-url="scripts/php/listNewAssignments.php" data-pagination="true"
+					data-show-columns="true"
+					data-height="400"
+					data-show-refresh="true"
+					data-toolbar="#assignmentsTableToolbar"
+					data-mobile-responsive="true"
+					data-pagination="true"
+					data-show-toggle="true"
+					class="table table-striped table-condensed">
+				<thead>
+				<tr>
+					<th data-field="Codice_Ordine" data-sortable="true" data-visible="false" data-width="30px">#</th>
+					<th data-field="DataConsegna" data-sortable="true" data-switchable="false">Data Consegna</th>
+					<th data-field="ComuneUtente" data-sortable="true">Comune Utente</th>
+					<th data-field="ComuneNegozio" data-sortable="true" data-visible="true">Comune Negozio</th>
+					<th data-field="Negozio" data-sortable="true">Negozio</th>
+					<th data-field="Prodotti" data-sortable="true" data-visible="false">Prodotti</th>
+					<th data-field="TotalDistance" data-sortable="true" data-formatter="distanceFormatter">Percorso</th>
+					<th data-field="TotalTime" data-sortable="true" data-formatter="timeFormatter">Impiego</th>
+					<th data-field="action" data-width="30px" data-align="center" data-formatter="actionFormatter" data-switchable="false" data-events="actionEvents"></th>
+				</tr>
+				
+				</thead>
+			</table>
+		</div>
+		<script>
+				function actionFormatter(value, row, index) {
+					return [
+						'<a href="incarichiUpdate.php?Codice=' + row.Codice_Ordine + '" class="btn btn-small btn-info" style="padding: 2px;" title="Esegui">Esegui',
+						'</a>'
+					].join('');
+				}
+				
+				function distanceFormatter(value, row, index) {
+					if (value != "non disponibile") {
+						return [
+							value + " km"
+						].join('');
+					}
+					
+					return value;
+				}
+				
+				function timeFormatter(value, row, index) {
+					if (value != "non disponibile") {
+						return [
+							value + " min"
+						].join('');
+					}
+					
+					return value;
+					
+				}
+				
+				window.actionEvents = {
+					'click .remove': function (e, value, row, index) {
+						alert("redirect");
+						
+						//console.log(e.target.parentElement.parentElement.parentElement.parentElement.parentElement.id);
+					}
+				};
+					
+			$(function(){
+					timeValue = "120";
+					transportValue = "automobile";
+
+					$(".maxTime").html("2 ore");
+					$(".maxDistance").html("automobile");
+					
+					updateOrders();
+					$(window).on("resize", function(){
+						updateHeight();	
+					});
+					
+
+			});
+			
+			
+			function updateHeight(){
+				
+				if (window.innerWidth<991) {
+					height = 150 *2;
+				}else{
+					height = 150;
+				}
+				
+				$("#results").css("margin-top", height);
+			}
+		
+			var emoji = [
+							"<img rangeText='nessun mezzo' range='nessun_mezzo' class='emoji' draggable='false' src='/public/images/walk.png'>",
+							"<img rangeText='bicicletta' range='bicicletta' class='emoji' draggable='false' src='/public/images/bike.png'>",
+							"<img rangeText='autobus' range='autobus' class='emoji' draggable='false' src='/public/images/bus.png'>",
+							"<img rangeText='automobile' range='automobile' class='emoji' draggable='false' src='/public/images/car.png'>"
+						 ];
+								
+			$("#distance-slider")
+				.slider({
+					max: 3,
+					value: 3
+				})
+				.slider("pips", {
+					rest: "label",
+					labels: emoji
+				})
+				.on("slidechange", function( e, ui ) {
+						var html = $.parseHTML(emoji[ui.value])
+						$(".maxDistance").html($(html).attr("rangeText"));
+						transportValue = $(html).attr("range");
+						updateOrders();
+				});
+				
+			var time = [
+							"<img rangeText='30 min' range='30' class='emoji' draggable='false' src='/public/images/30min.png'>",
+							"<img rangeText='1 ora' range='60' class='emoji' draggable='false' src='/public/images/min2.jpg'>",
+							"<img rangeText='2 ore' range='120' class='emoji' draggable='false' src='/public/images/min3.jpg'>",
+							"<img rangeText='nessun limite' range='300' class='emoji' draggable='false' src='/public/images/min4.png'>"
+						 ];
+			
+			$("#time-slider")
+				.slider({
+					max: 3,
+					value: 2
+				})
+				.slider("pips", {
+					rest: "label",
+					labels: time
+				})
+				.on("slidechange", function( e, ui ) {
+						var html = $.parseHTML(time[ui.value])
+						$(".maxTime").html($(html).attr("rangeText"));
+						timeValue = $(html).attr("range");
+						updateOrders();
+				});
+				
+				function updateOrders() {
+					
+					var url = 'scripts/php/listNewAssignments.php?type=' + transportValue + "&time=" + timeValue;
+
+					$("#assignmentsTable").bootstrapTable('refresh', {
+						url: url
+					});
+					
+				}
+					
+					
+				
+		</script>
+	

@@ -1,0 +1,15 @@
+tipologia utenza
+
+negozio | fattorino | utente
+
+000 --> admin
+
+001 --> utente
+011 --> utente, fattorino
+101 --> utente, negozio
+
+010 --> fattorino
+110 --> fattorino, negozio
+
+100 --> negozio
+111 --> negozio, fattorino, utente
